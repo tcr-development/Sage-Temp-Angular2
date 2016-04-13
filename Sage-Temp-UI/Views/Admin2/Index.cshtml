@@ -1,0 +1,23 @@
+﻿@section headscripts {
+   <script>
+	System.config({
+		packages: {
+		   "/dist": {
+		      format: 'register',
+		      defaultExtension: 'js'
+		   },
+		   "/dist/admin2": {
+				format: 'register',
+				defaultExtension: 'js'
+			},
+			"/dist/services": {
+			   format: 'register',
+			   defaultExtension: 'js'
+			}
+		}
+	});
+	System.import('/dist/admin2/main')
+			.then(null, console.error.bind(console));
+   </script>
+}
+<admin></admin>

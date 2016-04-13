@@ -1,7 +1,6 @@
 ﻿import { Injectable } from "angular2/core";
 import {Http, Response} from "angular2/http"
 import { Company } from "../models/company";
-import { COMPANIES } from "../mock-companies";
 import {Observable} from 'rxjs/Observable';
 
 @Injectable()
@@ -12,17 +11,10 @@ export class AdminService {
 
    getCompanies(): Observable<Company[]> {
       return this.http.get(this._url + "getCompanies").map(res => <Company[]>res.json()).catch(this.handleError);
-      //return Promise.resolve(COMPANIES);
-   }
-
-   getCompaniesSlowly(): Promise<Company[]> {
-      return new Promise<Company[]>(resolve =>
-         setTimeout(() => resolve(COMPANIES), 2000) // 2 seconds
-      );
    }
 
    getCompany(id: number) : Observable<Company> {
-      return this.http.get(this._url + id).map(res => <Company>res.json()).catch(this.handleError);
+      return this.http.get(this._url + "GetCompany/" + id).map(res => <Company>res.json()).catch(this.handleError);
    }
 
    private handleError(error: Response) {
