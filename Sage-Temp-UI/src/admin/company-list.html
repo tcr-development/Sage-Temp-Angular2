@@ -1,0 +1,15 @@
+﻿<h2>Companies</h2>
+<table class="table">
+   <thead>
+      <tr>
+         <th>Id</th>
+         <th>Name</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr *ngFor="#company of companies" (click)="selectCompany(company)">
+         <td>{{company.id}}</td>
+         <td>{{company.name}}</td>
+      </tr>
+   </tbody>
+</table>

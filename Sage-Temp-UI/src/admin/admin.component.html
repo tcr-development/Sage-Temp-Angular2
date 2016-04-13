@@ -1,0 +1,8 @@
+﻿<h1>My First Angular 2 App</h1>
+
+<div class="col-md-4">
+   <companies (selectCompanyEvent)="handleSelectCompany($event)"></companies>
+</div>
+<div class="col-md-8">
+   <company-detail [company]="selectedCompany"></company-detail>
+</div>
