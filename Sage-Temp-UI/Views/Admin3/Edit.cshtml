@@ -1,0 +1,29 @@
+﻿@model Int32
+@section headscripts {
+   <script>
+   var Globals = Globals || {};
+   Globals.companyId = @Model;
+
+	System.config({
+		packages: {
+		   "/dist": {
+		      format: 'register',
+		      defaultExtension: 'js'
+		   },
+		   "/dist/admin3": {
+				format: 'register',
+				defaultExtension: 'js'
+			},
+			"/dist/services": {
+			   format: 'register',
+			   defaultExtension: 'js'
+			}
+		}
+	});
+	System.import('/dist/admin3/edit.main')
+			.then(null, console.error.bind(console));
+   </script>
+}
+
+@*I really thought this @Input binding would work but it doesn't - for now I'm using the Globals.companyId set above.*@
+<edit-company [id]="@Model"></edit-company>

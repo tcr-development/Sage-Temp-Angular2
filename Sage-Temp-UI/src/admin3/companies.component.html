@@ -7,9 +7,9 @@
       </tr>
    </thead>
    <tbody>
-      <tr *ngFor="#company of companies" (click)="gotoDetail(company)">
+      <tr *ngFor="#company of companies">
          <td>{{company.id}}</td>
-         <td class="btn btn-link">{{company.name}}</td>
+         <td class="btn btn-link"><a href="/admin3/edit/{{company.id}}">{{company.name}}</a></td>
       </tr>
    </tbody>
 </table>
